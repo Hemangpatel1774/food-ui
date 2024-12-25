@@ -1,12 +1,12 @@
-import React from "react";
 import start from "../assets/start.svg";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/slices/CartSlices";
 
+// eslint-disable-next-line react/prop-types
 function FoodCard({ id, img, title, price, rating, discription, handleToast }) {
   const dispatch = useDispatch();
   return (
-    <div className="font-bold w-[250px] bg-white p-5 flex flex-col rounded-lg">
+    <div className="font-bold w-[250px] p-5 flex flex-col rounded-lg">
       <img
         src={img}
         alt=""
@@ -30,7 +30,7 @@ function FoodCard({ id, img, title, price, rating, discription, handleToast }) {
             onClick={() => {
               console.log("Add to cart clicked");
               dispatch(
-                addToCart({ id, title, price, rating, price, img, qty: 1 })
+                addToCart({ id, title, price, rating, img, qty: 1 })
               );
               handleToast(title);
             }}
